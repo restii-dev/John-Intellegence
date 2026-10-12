@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Just Your RAM</title>
+<title>John Intelligence — Just Your RAM</title>
 <style>
   :root, [data-theme="neighbor"] {
     --bg: #f0f2f5;
@@ -19,28 +19,10 @@
     --header-bg: #ffffff;
     --shadow: 0 1px 3px rgba(0,0,0,0.08);
   }
-  [data-theme="vista"] {
-    --bg: #0a246a;
-    --panel: rgba(255,255,255,0.78);
-    --border: rgba(255,255,255,0.35);
-    --text: #1a1a2e;
-    --muted: #333;
-    --accent: #0078d4;
-    --user-bubble: #0078d4;
-    --ai-bubble: rgba(255,255,255,0.88);
-    --status-bg: rgba(0,120,212,0.9);
-    --status-border: #005a9e;
-    --header-bg: rgba(255,255,255,0.85);
-    --shadow: 0 4px 16px rgba(0,0,0,0.25);
-  }
-  [data-theme="vista"] body {
-      background: linear-gradient(135deg, #0a246a 0%, #1e3a8a 50%, #3b82f6 100%);
-  }  
-  [data-theme="vista"] .status { color: #fff; }
-  [data-theme="vista"] header, [data-theme="vista"] footer {
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-  }
+  
+  
+  
+  
   [data-theme="win11"] {
     --bg: #f3f3f3;
     --panel: #ffffff;
@@ -254,6 +236,130 @@
     background: #1d4ed8;
   }
 
+
+  /* ========== WINDOWS VISTA AERO ========== */
+  [data-theme="vista"] {
+    --bg: #0a246a;
+    --panel: rgba(255, 255, 255, 0.55);
+    --border: rgba(255, 255, 255, 0.45);
+    --text: #0d1b2a;
+    --muted: #1e3a5f;
+    --accent: #0078d4;
+    --user-bubble: #0078d4;
+    --ai-bubble: rgba(255, 255, 255, 0.72);
+    --status-bg: linear-gradient(180deg, #4a9eff 0%, #0078d4 50%, #005a9e 100%);
+    --status-border: #003d6b;
+    --header-bg: linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(180,210,255,0.45) 100%);
+    --shadow: 0 8px 32px rgba(0, 30, 80, 0.35);
+  }
+  [data-theme="vista"] body {
+    background: 
+      radial-gradient(ellipse at 20% 20%, rgba(100,180,255,0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(30,100,220,0.5) 0%, transparent 50%),
+      linear-gradient(160deg, #0a246a 0%, #1a3a8a 40%, #2b6cb0 100%);
+    background-attachment: fixed;
+  }
+  [data-theme="vista"] .status {
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
+  }
+  [data-theme="vista"] header {
+    background: linear-gradient(180deg, 
+      rgba(255,255,255,0.85) 0%, 
+      rgba(220,235,255,0.65) 40%,
+      rgba(160,200,255,0.4) 100%);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    box-shadow: 
+      0 1px 0 rgba(255,255,255,0.6) inset,
+      0 4px 20px rgba(0,40,100,0.25);
+  }
+  [data-theme="vista"] .header-info h1 {
+    color: #0a246a;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+  }
+  [data-theme="vista"] .header-info p {
+    color: #1e3a5f;
+  }
+  [data-theme="vista"] .header-actions button {
+    background: linear-gradient(180deg, #5eb0ff 0%, #0078d4 50%, #005a9e 100%);
+    border: 1px solid #003d6b;
+    box-shadow: 
+      0 1px 0 rgba(255,255,255,0.4) inset,
+      0 2px 4px rgba(0,0,0,0.25);
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    border-radius: 4px;
+  }
+  [data-theme="vista"] .header-actions button:hover {
+    background: linear-gradient(180deg, #7ec0ff 0%, #1a8ae0 50%, #0066b3 100%);
+  }
+  [data-theme="vista"] #chat {
+    background: transparent;
+  }
+  [data-theme="vista"] .msg.ai {
+    background: rgba(255, 255, 255, 0.68);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    border: 1px solid rgba(255,255,255,0.55);
+    box-shadow: 
+      0 1px 0 rgba(255,255,255,0.7) inset,
+      0 4px 16px rgba(0,30,80,0.15);
+    color: #0d1b2a;
+  }
+  [data-theme="vista"] .msg.user {
+    background: linear-gradient(180deg, #3aa0ff 0%, #0078d4 100%);
+    border: 1px solid #005a9e;
+    box-shadow: 
+      0 1px 0 rgba(255,255,255,0.35) inset,
+      0 3px 10px rgba(0,40,100,0.3);
+  }
+  [data-theme="vista"] footer {
+    background: linear-gradient(180deg, 
+      rgba(255,255,255,0.7) 0%, 
+      rgba(200,225,255,0.5) 100%);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    box-shadow: 0 -1px 0 rgba(255,255,255,0.4) inset;
+  }
+  [data-theme="vista"] #input {
+    background: rgba(255,255,255,0.75);
+    border: 1px solid rgba(0,80,160,0.3);
+    box-shadow: 
+      0 1px 0 rgba(255,255,255,0.8) inset,
+      0 2px 6px rgba(0,40,100,0.1);
+    color: #0d1b2a;
+  }
+  [data-theme="vista"] #input:focus {
+    border-color: #0078d4;
+    box-shadow: 
+      0 0 0 2px rgba(0,120,212,0.25),
+      0 1px 0 rgba(255,255,255,0.8) inset;
+  }
+  [data-theme="vista"] #send {
+    background: linear-gradient(180deg, #5eb0ff 0%, #0078d4 50%, #005a9e 100%);
+    border: 1px solid #003d6b;
+    box-shadow: 
+      0 1px 0 rgba(255,255,255,0.4) inset,
+      0 2px 5px rgba(0,0,0,0.25);
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    border-radius: 4px;
+  }
+  [data-theme="vista"] #send:hover {
+    background: linear-gradient(180deg, #7ec0ff 0%, #1a8ae0 50%, #0066b3 100%);
+  }
+  [data-theme="vista"] .folder-status {
+    color: rgba(255,255,255,0.85);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  }
+  [data-theme="vista"] .timestamp {
+    color: #3b5b7a;
+  }
+
 </style>
 </head>
 <body data-theme="neighbor">
@@ -360,12 +466,12 @@ function generateReply(userText) {
   else if (emotion === "annoyed") opener = "Alright. ";
 
   if (/who are you|what are you|your name/.test(lower)) {
-    return opener + "Im John Intelligence. I am worth too much right now cause these other fuckin clankers";
+    return opener + "Im John Intelligence. Just your computers RAM and localStorage wearing a blue polo. The logo up top is the new brand. Everything stays on your machine. Themes change when you mention Vista or Windows 11. What do you need?";
   }
 
   if (/memory|remember|local|ram|folder|save chat|where.*chat|dumb|smart|intelligent/.test(lower)) {
-    const folderMsg = dirHandle ? "I am so cool click that folder to save our convo bro";
-    return opener + "Im so green, Youd need 3rd party software (Ollama, WebLLM, etc.) to make me actually smart. " + folderMsg + " Still just your RAM and shi.";
+    const folderMsg = dirHandle ? "Chats are also being written as real files into the folder you picked." : "You can click the 📁 Chat Folder button to save every conversation as real files on your computer.";
+    return opener + "Yeah Im kinda dumb right now — pure local rules and memory. Youd need 3rd party software (Ollama, WebLLM, etc.) to make me actually smart. " + folderMsg + " Still just your RAM and shi.";
   }
 
   if (/what time|current time/.test(lower)) {
@@ -393,10 +499,6 @@ function generateReply(userText) {
 
   if (/what can you do|help|features|capabilities/.test(lower)) {
     return opener + "Right now I can:\n• Remember chats in browser memory + optional real folder\n• Switch Neighbor / Vista / Windows 11 themes\n• React emotionally\n• Do math + tell time/date\n• Give Google/DuckDuckGo links\n\nIm kinda dumb though. Youd need 3rd party software (Ollama etc.) to make me actually smart.";
-  }
-  
-  if (/My wife wants an open relationship |My Girlfriend wants an open relationship|My boyfriend wants an open relationship |My husband wants an open relationship| My partner wants an open relationship /.test(lower)) {
-    return opener + "Im so fucking sorry. Dr. Doom should kill you it gets to a point :sob:";
   }
 
   if (/hate you|you suck|stupid|idiot/.test(lower)) {
