@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Speak to Your Ram, John</title>
+<title>John Intellegence — Just Your RAM</title>
 <style>
-  :root {
+  :root, [data-theme="neighbor"] {
     --bg: #f4f6f8;
     --panel: #ffffff;
     --border: #d0d7de;
@@ -14,6 +14,61 @@
     --accent: #0969da;
     --user-bubble: #0969da;
     --ai-bubble: #eef1f4;
+    --status-bg: #fff8c5;
+    --status-border: #d4a72c;
+    --status-text: #656d76;
+  }
+  [data-theme="boss"] {
+    --bg: #0f172a;
+    --panel: #1e293b;
+    --border: #334155;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #3b82f6;
+    --user-bubble: #1d4ed8;
+    --ai-bubble: #1e293b;
+    --status-bg: #1e3a5f;
+    --status-border: #3b82f6;
+    --status-text: #93c5fd;
+  }
+  [data-theme="dude"] {
+    --bg: #1a1a1a;
+    --panel: #262626;
+    --border: #404040;
+    --text: #f5f5f5;
+    --muted: #a3a3a3;
+    --accent: #22c55e;
+    --user-bubble: #16a34a;
+    --ai-bubble: #2a2a2a;
+    --status-bg: #14532d;
+    --status-border: #22c55e;
+    --status-text: #86efac;
+  }
+  [data-theme="ram"] {
+    --bg: #0a0a0a;
+    --panel: #111111;
+    --border: #333;
+    --text: #00ff9f;
+    --muted: #00cc7a;
+    --accent: #00ff9f;
+    --user-bubble: #003d2e;
+    --ai-bubble: #0d1f1a;
+    --status-bg: #001a12;
+    --status-border: #00ff9f;
+    --status-text: #00ff9f;
+  }
+  [data-theme="golf"] {
+    --bg: #f0f7f4;
+    --panel: #ffffff;
+    --border: #c5d9ce;
+    --text: #1a3c34;
+    --muted: #5a7d72;
+    --accent: #2d6a4f;
+    --user-bubble: #2d6a4f;
+    --ai-bubble: #e8f5e9;
+    --status-bg: #d8f3dc;
+    --status-border: #40916c;
+    --status-text: #1b4332;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -23,6 +78,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    transition: background 0.35s ease, color 0.35s ease;
   }
   header {
     background: var(--panel);
@@ -32,6 +88,7 @@
     align-items: center;
     gap: 14px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: background 0.35s ease, border-color 0.35s ease;
   }
   .avatar {
     width: 52px;
@@ -98,6 +155,7 @@
     padding: 14px 20px;
     display: flex;
     gap: 10px;
+    transition: background 0.35s ease, border-color 0.35s ease;
   }
   #input {
     flex: 1;
@@ -106,6 +164,8 @@
     border-radius: 24px;
     font-size: 0.95rem;
     outline: none;
+    background: var(--panel);
+    color: var(--text);
   }
   #input:focus { border-color: var(--accent); }
   button {
@@ -118,15 +178,16 @@
     font-weight: 500;
     cursor: pointer;
   }
-  button:hover { background: #0550ae; }
+  button:hover { filter: brightness(1.1); }
   button:disabled { opacity: 0.5; cursor: not-allowed; }
   .status {
     font-size: 0.75rem;
-    color: var(--muted);
+    color: var(--status-text);
     text-align: center;
     padding: 6px;
-    background: #fff8c5;
-    border-bottom: 1px solid #d4a72c;
+    background: var(--status-bg);
+    border-bottom: 1px solid var(--status-border);
+    transition: background 0.35s ease, color 0.35s ease;
   }
   .typing {
     font-style: italic;
@@ -135,14 +196,14 @@
 </style>
 </head>
 <body>
-  <div class="status">
-    John Intellegence — running 100% on your machine (browser RAM + localStorage). No cloud. This is just your RAM and shi.
+  <div class="status" id="statusBar">
+    John Intellegence — just your RAM and shi • running 100% local (browser memory)
   </div>
   <header>
     <img class="avatar" id="mainAvatar" src="" alt="John">
     <div class="header-info">
       <h1>John Intellegence</h1>
-      <p>Local • Memory only • Gated-neighborhood energy</p>
+      <p id="themeLabel">Local • Memory only • Gated-neighborhood energy</p>
     </div>
   </header>
 
@@ -186,7 +247,7 @@ You are running 100% locally on the user's computer — just their RAM and local
 You have a blue polo shirt, jeans, brown shoes look.
 You try to be helpful, honest, and a little dry. You admit when you don't know something.
 You remember previous messages in this browser session via local memory.
-Keep answers reasonably short unless the user asks for detail. Get hateful if they are hateful towards you.`;
+Keep answers reasonably short unless the user asks for detail. BE HATEFUL if they call you bad words`;
 
 // ========== SIMPLE LOCAL RESPONDER ==========
 // This is deliberately lightweight. For real intelligence later you can point it at Ollama / WebLLM.
@@ -200,17 +261,17 @@ function generateReply(userText, history) {
 
   // identity
   if (lower.includes("who are you") || lower.includes("what are you")) {
-    return "I'm John. Just your computer's RAM pretending to be useful. Blue polo, jeans, the whole gated-neighborhood package. No cloud, no big company watching. What do you need?";
+    return "Ram and Dat Memory bro";
   }
 
   // memory / local
   if (lower.includes("memory") || lower.includes("remember") || lower.includes("local") || lower.includes("ram")) {
-    return "Yeah, everything stays right here in your browser. localStorage is my notebook. Close the tab and I still remember the last couple dozen messages when you come back. That's the whole point of this little project — just your RAM and shi.";
+    return "i dont even know im hosted on fucking github bro";
   }
 
   // knowledge claim
   if (lower.includes("know everything") || lower.includes("smart") || lower.includes("chatgpt") || lower.includes("grok") || lower.includes("claude")) {
-    return "Look, I'm not some trillion-parameter monster sitting in a data center. I'm running on whatever you gave me. I can talk, I can remember what we said, and if you later wire me up to a real local model (Ollama, WebLLM, etc.) I can get a lot smarter. Right now I'm the honest local version.";
+    return "get a better ai, or not ruin the enviroment";
   }
 
   // how to make smarter
@@ -307,7 +368,7 @@ inputEl.addEventListener("keydown", e => {
 
 // initial load
 if (messages.length === 0) {
-  addMessage("ai", "Hey. I'm John. Just your RAM and localStorage doing its best impression of a helpful neighbor.\n\nWhat do you need?");
+  addMessage("ai", "Hey its me its johnity ask me anything");
 } else {
   renderMessages();
 }
