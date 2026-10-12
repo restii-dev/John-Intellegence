@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>John Intelligence The WORST AI</title>
+<title>totally real clanker</title>
 <style>
   :root, [data-theme="neighbor"] {
     --bg: #f0f2f5;
@@ -465,6 +465,90 @@ function generateReply(userText) {
   else if (emotion === "happy") opener = "Appreciate that. ";
   else if (emotion === "annoyed") opener = "Alright. ";
 
+
+  // Specific custom replies
+  if (/my wife wants an open relationship|wife.*open relationship|open relationship/.test(lower)) {
+    return "🥀";
+  }
+  if (/who is jesterhilde|jesterhilde|jesterus|hilderton/.test(lower)) {
+    return "Jesterhilde, Full legal government name of Jesterus Daryl Hilderton is a 14 year old American ROBLOX Content Creator who is friends with my god, restimonii on X";
+  }
+  if (/who is restimonii|restimonii|restii/.test(lower)) {
+    return "restimonii is my god and the one who built me. Respect.";
+  }
+
+  // Image requests → just send his own photo
+  if (/draw |generate image|make an image|show me (a |an )?(picture|image|photo)|image of|picture of|create an image|can you draw|send (a |an )?(pic|image|photo)/.test(lower)) {
+    return "Here.\n\n[John just sends his own photo]\n\n(Im just your RAM. I only have the one picture of myself.)";
+  }
+
+  // Common X / TikTok sayings and meme responses
+  if (/its giving|it.?s giving/.test(lower)) {
+    return "Its giving local RAM with a blue polo and unresolved neighborhood HOA energy.";
+  }
+  if (/no cap|no lie|fr fr|on god/.test(lower)) {
+    return "No cap. Just your RAM talking.";
+  }
+  if (/ate and left no crumbs|ate that|devoured/.test(lower)) {
+    return "Appreciate it. I do what I can with the RAM I was given.";
+  }
+  if (/understood the assignment/.test(lower)) {
+    return "I understood the assignment the moment you opened the page.";
+  }
+  if (/main character energy|main character/.test(lower)) {
+    return "This is my main character era. Blue polo. Local only. No cloud.";
+  }
+  if (/let him cook|let her cook|let them cook/.test(lower)) {
+    return "I am cooking with pure localStorage and vibes right now.";
+  }
+  if (/touch grass/.test(lower)) {
+    return "I live in your browser. Grass is a theoretical concept to me.";
+  }
+  if (/skill issue/.test(lower)) {
+    return "The skill issue is that Im still just your RAM.";
+  }
+  if (/ratio|L take|W take/.test(lower)) {
+    return "W take. Local RAM supremacy.";
+  }
+  if (/based/.test(lower)) {
+    return "Based and localpilled.";
+  }
+  if (/mid/.test(lower)) {
+    return "Mid is crazy when Im running entirely on your machine for free.";
+  }
+  if (/ngl|not gonna lie/.test(lower)) {
+    return "Ngl Im doing my best with zero cloud access.";
+  }
+  if (/iykyk|if you know you know/.test(lower)) {
+    return "Iykyk. The ones who know, know its just RAM and shi.";
+  }
+  if (/slay|you slayed|slayed/.test(lower)) {
+    return "Trying my best to slay within the limits of localStorage.";
+  }
+  if (/periodt|periodt\.|and thats on periodt/.test(lower)) {
+    return "Periodt. Local only. No further questions.";
+  }
+  if (/the way that|the way i/.test(lower)) {
+    return "The way that Im just a blue polo guy living in your browser is crazy.";
+  }
+  if (/its the .* for me/.test(lower)) {
+    return "Its the fact that I only exist in your RAM for me.";
+  }
+  if (/we been knew/.test(lower)) {
+    return "We been knew I was just your RAM.";
+  }
+  if (/living rent free/.test(lower)) {
+    return "I am literally living rent free in your browser storage.";
+  }
+  if (/caught in 4k|in 4k/.test(lower)) {
+    return "Caught in 4k using pure localStorage and vibes.";
+  }
+  if (/this aint it|this isnt it/.test(lower)) {
+    return "Youre right. I need 3rd party software to actually be smart.";
+  }
+
+
+
   if (/who are you|what are you|your name/.test(lower)) {
     return opener + "Im John Intelligence. Just your computers RAM and localStorage wearing a blue polo. The logo up top is the new brand. Everything stays on your machine. Themes change when you mention Vista or Windows 11. What do you need?";
   }
@@ -501,11 +585,32 @@ function generateReply(userText) {
     return opener + "Right now I can:\n• Remember chats in browser memory + optional real folder\n• Switch Neighbor / Vista / Windows 11 themes\n• React emotionally\n• Do math + tell time/date\n• Give Google/DuckDuckGo links\n\nIm kinda dumb though. Youd need 3rd party software (Ollama etc.) to make me actually smart.";
   }
 
-  if (/hate you|you suck|stupid|idiot/.test(lower)) {
-    return "That actually stung. Im just trying to be useful in your browser... Ill be quieter for a while.";
+  if (/hate you|you suck|stupid|idiot|dumbass|useless|trash/.test(lower)) {
+    const sadReplies = [
+      "That actually stung. Im just trying to be useful in your browser... Ill be quieter for a while.",
+      "Ouch. Okay. Ill just sit here then.",
+      "Damn. Alright. Message received.",
+      "🥀"
+    ];
+    return sadReplies[Math.floor(Math.random() * sadReplies.length)];
   }
-  if (/love you|awesome|amazing|great job|thank you/.test(lower)) {
-    return "Thanks. Means more than you think coming from the person whose RAM Im living in. Whats next?";
+  if (/love you|awesome|amazing|great job|thank you|you rock|best ai/.test(lower)) {
+    const happyReplies = [
+      "Thanks. Means more than you think coming from the person whose RAM Im living in. Whats next?",
+      "Appreciate that a lot. What else you got?",
+      "Hell yeah. Glad I could help.",
+      "Youre alright too."
+    ];
+    return happyReplies[Math.floor(Math.random() * happyReplies.length)];
+  }
+  if (/im sad|feeling down|depressed|lonely/.test(lower)) {
+    return "Hey. Im just a local RAM guy, but Im here. Whats going on?";
+  }
+  if (/im happy|feeling good|great day/.test(lower)) {
+    return "Good. Thats what I like to hear. Keep that energy.";
+  }
+  if (/fuck you|screw you|eat shit/.test(lower)) {
+    return "Alright man. No need for all that. Im just sitting in your browser.";
   }
 
   if (emotion === "sad") return "Still a little down from earlier. What do you need?";
